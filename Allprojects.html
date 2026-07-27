@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects — Archan Kundu Chowdhury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFD84D; --blue:#7FD1F0; --pink:#FF9FD6; --ink:#151515;
+    --paper:#ffffff; --dot:#d8d8d8; --navy:#161B22; --muted:#4b5157;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    font-family:'Poppins',sans-serif; color:var(--ink);
+    background:radial-gradient(var(--dot) 1.4px, transparent 1.4px);
+    background-size:22px 22px; background-color:#fdfdfd;
+    border-left:6px solid var(--ink); min-height:100vh;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:40px 32px 100px;}
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem;
+    color:var(--ink); text-decoration:none; margin-bottom:26px;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .logo{font-family:'Caveat',cursive; font-weight:700; font-size:1.6rem; margin-bottom:8px;}
+  .tag{font-family:'Caveat',cursive; font-size:2.2rem; font-weight:700; display:inline-block; padding:2px 14px; transform:rotate(-1.5deg); background:var(--pink); margin-bottom:6px;}
+  .lead-line{font-size:1.05rem; margin:14px 0 22px; color:var(--ink); max-width:640px;}
+
+  .filter-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px;}
+  .filter-pill{
+    font-size:.85rem; font-weight:600; padding:7px 16px; border-radius:20px;
+    border:1.5px solid #e2e2e2; background:#fff; cursor:pointer;
+  }
+  .filter-pill.on{ border-color:var(--ink); background:var(--ink); color:#fff; }
+
+  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px;}
+  .proj-card{border:1px solid #e7e7e7; border-radius:10px; overflow:hidden; background:#fff;}
+  .proj-banner{height:150px; display:flex; align-items:center; justify-content:center; text-align:center; padding:14px; font-weight:600;}
+  .proj-body{padding:16px 18px 20px;}
+  .proj-title-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+  .proj-title-row h4{margin:0; font-size:1.15rem; font-weight:700;}
+  .gh-btn{background:var(--navy); color:#fff; border:none; border-radius:7px; padding:6px 14px; font-size:.82rem; font-weight:600; cursor:pointer;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .pill{font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px;}
+  .pill[data-tag="Laravel"]{background:#ffe1df; color:#c23a2f;}
+  .pill[data-tag="PHP"]{background:#dff1ff; color:#1c74b0;}
+  .pill[data-tag="Javascript"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="Digital Ocean"]{background:#e4e6ff; color:#3d3fbf;}
+  .pill[data-tag="HTML"]{background:#e2f8e6; color:#238b45;}
+  .pill[data-tag="CSS"]{background:#ffe1df; color:#c23a2f;}
+  .pill[data-tag="API"]{background:#eee0ff; color:#6b2fc9;}
+  .empty-msg{display:none; color:var(--muted); font-size:.95rem; padding:30px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">← Back to home</a>
+  <div class="logo">archan</div>
+  <span class="tag">All Projects</span>
+  <p class="lead-line">Every project I've built so far. Click a tag below to filter by technology.</p>
+
+  <div class="filter-row" id="filterRow">
+    <button class="filter-pill on" data-tag="all">All</button>
+    <button class="filter-pill" data-tag="Laravel">Laravel</button>
+    <button class="filter-pill" data-tag="PHP">PHP</button>
+    <button class="filter-pill" data-tag="Javascript">Javascript</button>
+    <button class="filter-pill" data-tag="Digital Ocean">Digital Ocean</button>
+    <button class="filter-pill" data-tag="HTML">HTML</button>
+    <button class="filter-pill" data-tag="CSS">CSS</button>
+    <button class="filter-pill" data-tag="API">API</button>
+  </div>
+
+  <div class="proj-grid" id="projGrid">
+    <div class="proj-card" data-tags="Laravel PHP Javascript Digital Ocean">
+      <div class="proj-banner" style="background:#f3f3f3;">Experience the fashion without purchasing!</div>
+      <div class="proj-body">
+        <div class="proj-title-row"><h4>Cloth renting app</h4><button class="gh-btn">Github</button></div>
+        <div class="pill-row">
+          <span class="pill" data-tag="Laravel">Laravel</span>
+          <span class="pill" data-tag="PHP">PHP</span>
+          <span class="pill" data-tag="Javascript">Javascript</span>
+          <span class="pill" data-tag="Digital Ocean">Digital Ocean</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-tags="PHP Javascript">
+      <div class="proj-banner" style="background:#d7f5e3;">Royal Terrace</div>
+      <div class="proj-body">
+        <div class="proj-title-row"><h4>Ecommerce &amp; blog</h4><button class="gh-btn">Github</button></div>
+        <div class="pill-row">
+          <span class="pill" data-tag="PHP">PHP</span>
+          <span class="pill" data-tag="Javascript">Javascript</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-tags="HTML CSS API">
+      <div class="proj-banner" style="background:#e2ddfb;">Pokédex</div>
+      <div class="proj-body">
+        <div class="proj-title-row"><h4>Pokedex API</h4><button class="gh-btn">Github</button></div>
+        <div class="pill-row">
+          <span class="pill" data-tag="HTML">HTML</span>
+          <span class="pill" data-tag="CSS">CSS</span>
+          <span class="pill" data-tag="API">API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="empty-msg" id="emptyMsg">No projects match that filter yet.</p>
+</div>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-pill');
+  const cards = document.querySelectorAll('.proj-card');
+  const emptyMsg = document.getElementById('emptyMsg');
+
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      filterBtns.forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      const tag = btn.dataset.tag;
+      let visibleCount = 0;
+      cards.forEach(c=>{
+        const show = tag === 'all' || c.dataset.tags.includes(tag);
+        c.style.display = show ? '' : 'none';
+        if(show) visibleCount++;
+      });
+      emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  });
+</script>
+</body>
+</html>
