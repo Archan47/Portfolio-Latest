@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Blogs — Archan Kundu Chowdhury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFD84D; --blue:#7FD1F0; --pink:#FF9FD6; --ink:#151515;
+    --paper:#ffffff; --dot:#d8d8d8; --navy:#161B22; --muted:#4b5157;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    font-family:'Poppins',sans-serif; color:var(--ink);
+    background:radial-gradient(var(--dot) 1.4px, transparent 1.4px);
+    background-size:22px 22px; background-color:#fdfdfd;
+    border-left:6px solid var(--ink); min-height:100vh;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:40px 32px 100px;}
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem;
+    color:var(--ink); text-decoration:none; margin-bottom:26px;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .logo{font-family:'Caveat',cursive; font-weight:700; font-size:1.6rem; margin-bottom:8px;}
+  .tag{font-family:'Caveat',cursive; font-size:2.2rem; font-weight:700; display:inline-block; padding:2px 14px; transform:rotate(-1.5deg); background:var(--pink); margin-bottom:6px;}
+  .lead-line{font-size:1.05rem; margin:14px 0 30px; color:var(--ink); max-width:640px;}
+
+  .blog-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px;}
+  .blog-card{
+    background:#fff; border:1px solid #e7e7e7; border-radius:12px;
+    padding:22px 24px; display:flex; flex-direction:column; gap:10px;
+  }
+  .blog-topic{
+    align-self:flex-start; font-size:.75rem; font-weight:700; letter-spacing:.03em;
+    text-transform:uppercase; padding:4px 12px; border-radius:20px;
+    background:#fff3d6; color:#8a6a10;
+  }
+  .blog-card h4{ margin:0; font-size:1.2rem; font-weight:700; }
+  .blog-card p{ margin:0; font-size:.92rem; line-height:1.55; color:#3a3f45; }
+  .blog-meta{ font-size:.8rem; color:var(--muted); }
+  .blog-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:4px;
+    font-size:.85rem; font-weight:600; color:var(--navy); text-decoration:none;
+    border-bottom:1.5px solid var(--blue); padding-bottom:1px; align-self:flex-start;
+  }
+  .blog-link:hover{ color:#000; }
+
+  .more-note{
+    margin-top:34px; padding:16px 20px; border-radius:10px; background:var(--blue);
+    max-width:520px; font-size:.9rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">← Back to home</a>
+  <div class="logo">archan</div>
+  <span class="tag">All Blogs</span>
+  <p class="lead-line">Everything I've written so far — all posted on Medium. More coming as I write them.</p>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <span class="blog-topic">Web Dev</span>
+      <h4>Blog Post Title 1</h4>
+      <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
+      <span class="blog-meta">Medium · replace with date/read time</span>
+      <a class="blog-link" href="https://medium.com/@your-handle/post-1" target="_blank" rel="noopener">Read on Medium ↗</a>
+    </div>
+    <div class="blog-card">
+      <span class="blog-topic">Web Dev</span>
+      <h4>Blog Post Title 2</h4>
+      <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
+      <span class="blog-meta">Medium · replace with date/read time</span>
+      <a class="blog-link" href="https://medium.com/@your-handle/post-2" target="_blank" rel="noopener">Read on Medium ↗</a>
+    </div>
+  </div>
+
+  <div class="more-note">📝 That's everything for now — new posts will show up here as they're published.</div>
+</div>
+</body>
+</html>
