@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archan Dhrangadharia — Developer</title>
+<title>Archan.DEV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -46,6 +46,45 @@
 
   .logo{font-family:'Caveat',cursive; font-weight:700; font-size:1.6rem; margin-bottom:40px;}
 
+  /* NAVBAR */
+  .navbar{
+    position:sticky; top:0; z-index:500;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 20px; margin:0 0 64px;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-radius:14px;
+    box-shadow: 12px 12px 12px rgb(198, 198, 198);
+  }
+  .navbar .logo{ margin-bottom:0; }
+  .nav-links{ display:flex; align-items:center; gap:4px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    font-family:'Poppins',sans-serif; font-size:.88rem; font-weight:600; color:var(--ink);
+    text-decoration:none; padding:8px 14px; border-radius:8px; position:relative;
+    transition:background-color .45s ease;
+  }
+  .nav-links a:hover{ background:rgba(0,0,0,.06); }
+  .nav-links a.active{ background:var(--active-color, var(--yellow)); }
+  .nav-toggle{
+    display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .nav-toggle span{ width:22px; height:2.5px; background:var(--ink); border-radius:2px; }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute; top:calc(100% + 8px); left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:2px;
+      background:#fff; border:1px solid #ececec; border-radius:12px; padding:10px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      display:none;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{ padding:10px 14px; }
+    .nav-toggle{ display:flex; }
+  }
+
+  html{ scroll-behavior:smooth; }
+  section{ scroll-margin-top:88px; }
+
   .hero{display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:start; margin-bottom:70px;}
   .hero-visual{position:relative; display:flex; align-items:center; gap:16px; margin-bottom:18px;}
 
@@ -80,7 +119,7 @@
     margin:0 0 0 0;
     letter-spacing:-0.5px;
   }
-  .hero-right p{font-size:1.05rem; line-height:1.6; margin-top:6px; color:var(--ink);}
+  .hero-right p{font-size:1.05rem; line-height:1.6; margin-top:6px; color:var(--ink); text-align:justify; hyphens:auto;}
   .hero-right p b{font-weight:700;}
   .btn{
     font-family:'Poppins',sans-serif;
@@ -147,13 +186,14 @@
   .tip p{margin:0; font-size:.9rem;}
   .proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px;}
   .proj-card{border:1px solid #e7e7e7; border-radius:10px; overflow:hidden; background:#fff;}
-  .proj-banner{height:150px; display:flex; align-items:center; justify-content:center; text-align:center; padding:14px; font-weight:600;}
+  .proj-banner{height:150px; width:100%; object-fit:cover; display:block; background:#f2f2f2;}
   .proj-body{padding:16px 18px 20px;}
   .proj-title-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
   .proj-title-row h4{margin:0; font-size:1.15rem; font-weight:700;}
+  .proj-desc{font-size:.88rem; line-height:1.5; color:#3a3f45; margin:0 0 12px;}
   .gh-btn{background:var(--navy); color:#fff; border:none; border-radius:7px; padding:6px 14px; font-size:.82rem; font-weight:600; cursor:pointer;}
   .pill-row{display:flex; flex-wrap:wrap; gap:8px;}
-  .pill{font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid transparent; cursor:pointer;}
+  .pill{font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid transparent; cursor:pointer; background:#f2f2f2; color:#333;}
   .pill.on{outline:2px solid var(--ink);}
   .pill[data-tag="Laravel"]{background:#ffe1df; color:#c23a2f;}
   .pill[data-tag="PHP"]{background:#dff1ff; color:#1c74b0;}
@@ -162,6 +202,27 @@
   .pill[data-tag="HTML"]{background:#e2f8e6; color:#238b45;}
   .pill[data-tag="CSS"]{background:#ffe1df; color:#c23a2f;}
   .pill[data-tag="API"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="React"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="React.js"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="Flask"]{background:#f0f0f0; color:#333;}
+  .pill[data-tag="LangChain"]{background:#e8f5e9; color:#2e7d32;}
+  .pill[data-tag="RAG"]{background:#fff3d6; color:#8a6a10;}
+  .pill[data-tag="Python"]{background:#eaf2ff; color:#2255a4;}
+  .pill[data-tag="TensorFlow"]{background:#fde8e8; color:#c23a2f;}
+  .pill[data-tag="CNN"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="Kaggle"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="Spring Boot"]{background:#e2f8e6; color:#238b45;}
+  .pill[data-tag="MongoDB"]{background:#e4e6ff; color:#3d3fbf;}
+  .pill[data-tag="REST API"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="IoT"]{background:#fff3d6; color:#8a6a10;}
+  .pill[data-tag="Aurdino IDE"]{background:#e2f8e6; color:#238b45;}
+  .pill[data-tag="Machine Learning"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="Java"]{background:#ffe1df; color:#c23a2f;}
+  .pill[data-tag="MySQL"]{background:#e4e6ff; color:#3d3fbf;}
+  .pill[data-tag="JDBC"]{background:#f0f0f0; color:#333;}
+  .pill[data-tag="NLP"]{background:#e8f5e9; color:#2e7d32;}
+  .pill[data-tag="Classification"]{background:#eaf2ff; color:#2255a4;}
+  .pill[data-tag="Streamlit"]{background:#fde8e8; color:#c23a2f;}
 
   .blog-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px; margin-bottom:22px;}
   .blog-card{
@@ -265,12 +326,33 @@
   .skill-panel{display:none;}
   .skill-panel.active{display:block;}
 
-  .social-row{display:flex; gap:16px;}
+  .social-row{display:flex; flex-wrap:wrap; gap:16px;}
+  .social-row #git:hover{
+    transition:0.3s ease-in-out;
+    border: 1px solid rgb(36, 36, 36);
+  }
+  .social-row #lnkdn:hover{
+    transition:0.3s ease-in-out;
+    border: 1px solid rgb(22, 126, 211);
+  }
+  .social-row #kgl:hover{
+    transition:0.3s ease-in-out;
+    border: 1px solid rgb(100, 200, 242);
+  }
+  .social-row #ltcd:hover{
+    transition:0.3s ease-in-out;
+    border: 1px solid rgb(243, 198, 19);
+  }
+  .social-row #mdm:hover{
+    transition:0.3s ease-in-out;
+    border: 1px solid rgb(36, 36, 36);
+  }
   .social-btn{
     display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e2e2;
     border-radius:9px; padding:12px 22px; font-weight:600; text-decoration:none; color:var(--ink);
   }
   .social-btn svg{width:20px; height:20px;}
+  .social-btn img{width:20px; height:20px; object-fit:contain;}
 
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
   .contact-copy p{font-size:1.02rem; line-height:1.6; max-width:360px;}
@@ -321,9 +403,24 @@
 <div id="preloader"><iframe src="intro-percent.html" title="Intro animation"></iframe></div>
 <div class="wrap">
 
-  <div class="logo">archan.dev</div>
+  <nav class="navbar">
+    <div class="logo">archan.dev</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active" data-color="var(--yellow)">Home</a></li>
+      <li><a href="#what-i-do" data-color="var(--blue)">What I Do</a></li>
+      <li><a href="#projects" data-color="var(--pink)">Projects</a></li>
+      <li><a href="#blog" data-color="var(--yellow)">Blog</a></li>
+      <li><a href="#journey" data-color="var(--blue)">Journey</a></li>
+      <li><a href="#skills" data-color="var(--pink)">Skills</a></li>
+      <li><a href="#socials" data-color="var(--yellow)">Socials</a></li>
+      <li><a href="#contact" data-color="var(--blue)">Contact</a></li>
+    </ul>
+  </nav>
 
-  <section class="hero reveal">
+  <section class="hero reveal" id="home">
     <div>
       <div class="hero-visual">
         <div class="avatar-video-wrap">
@@ -336,12 +433,12 @@
       <h1 class="headline">I develop top notch websites</h1>
     </div>
     <div class="hero-right">
-      <p><b>I'm Archan Kundu Chowdhury</b>, building standout websites using cutting-edge tech for a strong digital footprint.</p>
-      <a class="btn" href="python_resume_v1.pdf" target="_blank" rel="noopener" download>Resume ⭳</a>
+      <p><b>I'm Archan Kundu Chowdhury</b>,a computer science student focused on Machine Learning, Deep Learning, and full-stack web development. I build intelligent, data-driven systems and pair them with clean, scalable web interfaces. Outside of code, I stay disciplined through running and regular workouts.</p>
+      <a class="btn" href="python_resume_v1.pdf" target="_blank" rel="noopener">View Resume</a>
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="what-i-do">
     <div class="section-head"><span class="tag blue">What i do?</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
@@ -367,87 +464,35 @@
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="projects">
     <div class="section-head"><span class="tag pink">Featured Projects</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
-    <p class="lead-line">Worked on several projects in technologies like React.js, Next.js, Laravel, PHP.</p>
+    <p class="lead-line">Worked on several projects in technologies like React, Flask, Python, and Spring Boot.</p>
     <div class="tip">
       <div class="tip-title"><i data-lucide="lightbulb" class="icon icon-glow"></i> Tip</div>
       <p>To filter the projects, click on the tags to search.</p>
     </div>
 
-    <div class="proj-grid" id="projGrid">
-      <div class="proj-card" data-tags="Laravel PHP Javascript Digital Ocean">
-        <div class="proj-banner" style="background:#f3f3f3;">Experience the fashion without purchasing!</div>
-        <div class="proj-body">
-          <div class="proj-title-row"><h4>Cloth renting app</h4><button class="gh-btn">Github</button></div>
-          <div class="pill-row">
-            <span class="pill" data-tag="Laravel">Laravel</span>
-            <span class="pill" data-tag="PHP">PHP</span>
-            <span class="pill" data-tag="Javascript">Javascript</span>
-            <span class="pill" data-tag="Digital Ocean">Digital Ocean</span>
-          </div>
-        </div>
-      </div>
-      <div class="proj-card" data-tags="PHP Javascript">
-        <div class="proj-banner" style="background:#d7f5e3;">Royal Terrace</div>
-        <div class="proj-body">
-          <div class="proj-title-row"><h4>Ecommerce &amp; blog</h4><button class="gh-btn">Github</button></div>
-          <div class="pill-row">
-            <span class="pill" data-tag="PHP">PHP</span>
-            <span class="pill" data-tag="Javascript">Javascript</span>
-          </div>
-        </div>
-      </div>
-      <div class="proj-card" data-tags="HTML CSS API">
-        <div class="proj-banner" style="background:#e2ddfb;">Pokédex</div>
-        <div class="proj-body">
-          <div class="proj-title-row"><h4>Pokedex API</h4><button class="gh-btn">Github</button></div>
-          <div class="pill-row">
-            <span class="pill" data-tag="HTML">HTML</span>
-            <span class="pill" data-tag="CSS">CSS</span>
-            <span class="pill" data-tag="API">API</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Auto-filled with the first 3 entries from Sitedata.js (PROJECTS) -->
+    <div class="proj-grid" id="projGrid"></div>
+
     <a class="show-all" href="allProjects.html">Show all projects</a>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="blog">
     <div class="section-head"><span class="tag pink">Blog</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
     <p class="lead-line">Notes and write-ups I've published on Medium.</p>
 
-    <div class="blog-grid">
-      <div class="blog-card">
-        <img class="blog-banner" src="blog1.jpg" alt="Blog Post Title 1 cover image">
-        <div class="blog-body">
-          <span class="blog-topic">Web Dev</span>
-          <h4>Blog Post Title 1</h4>
-          <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
-          <span class="blog-meta">Medium · replace with date/read time</span>
-          <a class="blog-link" href="https://medium.com/@your-handle/post-1" target="_blank" rel="noopener">Read on Medium ↗</a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <img class="blog-banner" src="blog2.jpg" alt="Blog Post Title 2 cover image">
-        <div class="blog-body">
-          <span class="blog-topic">Web Dev</span>
-          <h4>Blog Post Title 2</h4>
-          <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
-          <span class="blog-meta">Medium · replace with date/read time</span>
-          <a class="blog-link" href="https://medium.com/@your-handle/post-2" target="_blank" rel="noopener">Read on Medium ↗</a>
-        </div>
-      </div>
-    </div>
+    <!-- Auto-filled with the first 3 entries from Sitedata.js (BLOGS) -->
+    <div class="blog-grid" id="blogGrid"></div>
 
     <a class="show-all" href="allBlogs.html">Show all blogs</a>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="journey">
     <div class="section-head"><span class="tag pink">My Journey</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
@@ -504,7 +549,7 @@
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="skills">
     <div class="section-head"><span class="tag pink">Skills</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
@@ -516,46 +561,60 @@
 
     <div class="skill-panel active" id="web">
       <div class="skills-cols">
-        <ul><li>React.js</li><li>Tailwind</li><li>Sanity</li><li>MySQL</li><li>Docker</li></ul>
-        <ul><li>Next.js</li><li>Framer motion</li><li>Laravel</li><li>MongoDB</li></ul>
+        <ul><li>React.js</li><li>Tailwind</li><li>Spring Boot</li><li>MySQL</li><li>Docker</li></ul>
+        <ul><li>Flask</li><li>Streamlit</li><li>MongoDB</li></ul>
       </div>
     </div>
     <div class="skill-panel" id="aiml">
       <div class="skills-cols">
+        <ul><li>Tensorflow</li><li>Plotly</li><li>Matplotlib</li><li>seaborn</li><li>NumPy / Pandas</li></ul>
         <ul><li>Python</li><li>Scikit-learn</li></ul>
-        <ul><li>ML from scratch</li><li>NumPy / Pandas</li></ul>
       </div>
     </div>
     <div class="skill-panel" id="osui">
       <div class="skills-cols">
-        <ul><li>ESP32 / IoT</li><li>Figma</li></ul>
-        <ul><li>GSAP</li><li>Three.js</li></ul>
+        <ul><li>ESP32 / IoT(minor)</li><li>Framer Motion(minor)</li></ul>
+        <ul><li>GSAP(minor)</li><li>Three.js(minor)</li></ul>
       </div>
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="socials">
     <div class="section-head"><span class="tag pink">Socials</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
     <div class="social-row">
-      <a class="social-btn" href="#">
+      <a id="git" class="social-btn" href="https://github.com/Archan47">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.94 3.2 9.13 7.65 10.6.56.1.76-.24.76-.53v-1.86c-3.11.68-3.77-1.5-3.77-1.5-.51-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.48-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.11-.28-.5-1.42.11-2.96 0 0 .93-.3 3.05 1.15a10.6 10.6 0 015.56 0c2.12-1.45 3.05-1.15 3.05-1.15.61 1.54.22 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.63 5.24-5.13 5.52.4.35.76 1.03.76 2.08v3.08c0 .29.2.63.77.53 4.44-1.48 7.64-5.67 7.64-10.6C23.02 5.24 18.27.5 12 .5z"/></svg>
         Github
       </a>
-      <a class="social-btn" href="#">
+      <a id="lnkdn" class="social-btn" href="https://www.linkedin.com/in/archan-kundu-chowdhury-5a71a1245/">
         <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
         LinkedIn
+      </a>
+      <a id="kgl" class="social-btn" href="https://www.kaggle.com/archankunduchowdhury">
+        <img src="images/kaggle.png" alt="Kaggle">
+        Kaggle
+      </a>
+      <a id="ltcd" class="social-btn" href="https://leetcode.com/u/Archan0047/">
+        <img src="images/LeetCode.png" alt="LeetCode">
+        LeetCode
+      </a>
+      <a id="mdm" class="social-btn" href="https://medium.com/@chowdhuryarchan76">
+        <img src="images/medium.png" alt="Medium">
+        Medium
       </a>
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="contact">
     <div class="section-head"><span class="tag pink">Contact here</span></div>
     <svg class="squiggle" viewBox="0 0 30 60" fill="none"><path d="M15 2 a6 6 0 1 1 -0.1 0" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 14 V45 M15 45 L9 38 M15 45 L21 38" stroke="var(--ink)" stroke-width="2.5"/></svg>
 
     <div class="contact-grid">
       <div class="contact-copy">
         <p>Let's start a conversation! Feel free to contact me for projects, inquiries or anything else.</p>
+        <br>
+        <p>chowdhuryarchan20021@gmail.com</p>
       </div>
       <form id="contactForm">
         <div class="field">
@@ -575,12 +634,55 @@
     </div>
   </section>
 
-  <footer>© <span id="year"></span> Archan Dhrangadharia. All rights reserved.</footer>
+  <footer>© <span id="year"></span> Archan Kundu Chowdhury. All rights reserved.</footer>
 </div>
 
+<script src="Sitedata.js"></script>
 <script>
   lucide.createIcons();
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Render the top 3 projects & top 3 blogs from the shared data file.
+  // This runs BEFORE the reveal/animation setup below so those elements
+  // exist in the DOM in time to be observed.
+  renderProjects('projGrid', 3);
+  attachInCardPillFilter('projGrid');
+  renderBlogs('blogGrid', 3);
+
+  // navbar: mobile toggle + scrollspy (highlights the current section's link)
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const links = Array.from(navLinks.querySelectorAll('a'));
+
+    toggle.addEventListener('click', ()=>{
+      navLinks.classList.toggle('open');
+    });
+    links.forEach(link=>{
+      link.addEventListener('click', ()=> navLinks.classList.remove('open'));
+    });
+
+    const sections = links
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = '#' + entry.target.id;
+          links.forEach(l=>{
+            const isActive = l.getAttribute('href') === id;
+            l.classList.toggle('active', isActive);
+            if(isActive){
+              l.style.setProperty('--active-color', l.dataset.color);
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(sec => spy.observe(sec));
+  })();
 
   (function(){
     const preloader = document.getElementById('preloader');
@@ -644,24 +746,6 @@
       document.querySelectorAll('.skill-panel').forEach(p=>p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(btn.dataset.panel).classList.add('active');
-    });
-  });
-
-  let activeTag = null;
-  document.querySelectorAll('.pill').forEach(pill=>{
-    pill.addEventListener('click', ()=>{
-      const tag = pill.dataset.tag;
-      if(activeTag === tag){
-        activeTag = null;
-        document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-        document.querySelectorAll('.proj-card').forEach(c=>c.style.display='');
-      } else {
-        activeTag = tag;
-        document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('on', p.dataset.tag===tag));
-        document.querySelectorAll('.proj-card').forEach(c=>{
-          c.style.display = c.dataset.tags.includes(tag) ? '' : 'none';
-        });
-      }
     });
   });
 

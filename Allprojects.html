@@ -38,13 +38,14 @@
 
   .proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px;}
   .proj-card{border:1px solid #e7e7e7; border-radius:10px; overflow:hidden; background:#fff;}
-  .proj-banner{height:150px; display:flex; align-items:center; justify-content:center; text-align:center; padding:14px; font-weight:600;}
+  .proj-banner{height:150px; width:100%; object-fit:cover; display:block; background:#f2f2f2;}
   .proj-body{padding:16px 18px 20px;}
   .proj-title-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
   .proj-title-row h4{margin:0; font-size:1.15rem; font-weight:700;}
+  .proj-desc{font-size:.88rem; line-height:1.5; color:#3a3f45; margin:0 0 12px;}
   .gh-btn{background:var(--navy); color:#fff; border:none; border-radius:7px; padding:6px 14px; font-size:.82rem; font-weight:600; cursor:pointer;}
   .pill-row{display:flex; flex-wrap:wrap; gap:8px;}
-  .pill{font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px;}
+  .pill{font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px; background:#f2f2f2; color:#333;}
   .pill[data-tag="Laravel"]{background:#ffe1df; color:#c23a2f;}
   .pill[data-tag="PHP"]{background:#dff1ff; color:#1c74b0;}
   .pill[data-tag="Javascript"]{background:#eee0ff; color:#6b2fc9;}
@@ -52,6 +53,27 @@
   .pill[data-tag="HTML"]{background:#e2f8e6; color:#238b45;}
   .pill[data-tag="CSS"]{background:#ffe1df; color:#c23a2f;}
   .pill[data-tag="API"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="React"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="React.js"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="Flask"]{background:#f0f0f0; color:#333;}
+  .pill[data-tag="LangChain"]{background:#e8f5e9; color:#2e7d32;}
+  .pill[data-tag="RAG"]{background:#fff3d6; color:#8a6a10;}
+  .pill[data-tag="Python"]{background:#eaf2ff; color:#2255a4;}
+  .pill[data-tag="TensorFlow"]{background:#fde8e8; color:#c23a2f;}
+  .pill[data-tag="CNN"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="Kaggle"]{background:#e0f4ff; color:#0f7bb3;}
+  .pill[data-tag="Spring Boot"]{background:#e2f8e6; color:#238b45;}
+  .pill[data-tag="MongoDB"]{background:#e4e6ff; color:#3d3fbf;}
+  .pill[data-tag="REST API"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="IoT"]{background:#fff3d6; color:#8a6a10;}
+  .pill[data-tag="Aurdino IDE"]{background:#e2f8e6; color:#238b45;}
+  .pill[data-tag="Machine Learning"]{background:#eee0ff; color:#6b2fc9;}
+  .pill[data-tag="Java"]{background:#ffe1df; color:#c23a2f;}
+  .pill[data-tag="MySQL"]{background:#e4e6ff; color:#3d3fbf;}
+  .pill[data-tag="JDBC"]{background:#f0f0f0; color:#333;}
+  .pill[data-tag="NLP"]{background:#e8f5e9; color:#2e7d32;}
+  .pill[data-tag="Classification"]{background:#eaf2ff; color:#2255a4;}
+  .pill[data-tag="Streamlit"]{background:#fde8e8; color:#c23a2f;}
   .empty-msg{display:none; color:var(--muted); font-size:.95rem; padding:30px 0;}
 </style>
 </head>
@@ -62,74 +84,19 @@
   <span class="tag">All Projects</span>
   <p class="lead-line">Every project I've built so far. Click a tag below to filter by technology.</p>
 
-  <div class="filter-row" id="filterRow">
-    <button class="filter-pill on" data-tag="all">All</button>
-    <button class="filter-pill" data-tag="Laravel">Laravel</button>
-    <button class="filter-pill" data-tag="PHP">PHP</button>
-    <button class="filter-pill" data-tag="Javascript">Javascript</button>
-    <button class="filter-pill" data-tag="Digital Ocean">Digital Ocean</button>
-    <button class="filter-pill" data-tag="HTML">HTML</button>
-    <button class="filter-pill" data-tag="CSS">CSS</button>
-    <button class="filter-pill" data-tag="API">API</button>
-  </div>
+  <!-- Auto-generated from the unique tags across every entry in PROJECTS -->
+  <div class="filter-row" id="filterRow"></div>
 
-  <div class="proj-grid" id="projGrid">
-    <div class="proj-card" data-tags="Laravel PHP Javascript Digital Ocean">
-      <div class="proj-banner" style="background:#f3f3f3;">Experience the fashion without purchasing!</div>
-      <div class="proj-body">
-        <div class="proj-title-row"><h4>Cloth renting app</h4><button class="gh-btn">Github</button></div>
-        <div class="pill-row">
-          <span class="pill" data-tag="Laravel">Laravel</span>
-          <span class="pill" data-tag="PHP">PHP</span>
-          <span class="pill" data-tag="Javascript">Javascript</span>
-          <span class="pill" data-tag="Digital Ocean">Digital Ocean</span>
-        </div>
-      </div>
-    </div>
-    <div class="proj-card" data-tags="PHP Javascript">
-      <div class="proj-banner" style="background:#d7f5e3;">Royal Terrace</div>
-      <div class="proj-body">
-        <div class="proj-title-row"><h4>Ecommerce &amp; blog</h4><button class="gh-btn">Github</button></div>
-        <div class="pill-row">
-          <span class="pill" data-tag="PHP">PHP</span>
-          <span class="pill" data-tag="Javascript">Javascript</span>
-        </div>
-      </div>
-    </div>
-    <div class="proj-card" data-tags="HTML CSS API">
-      <div class="proj-banner" style="background:#e2ddfb;">Pokédex</div>
-      <div class="proj-body">
-        <div class="proj-title-row"><h4>Pokedex API</h4><button class="gh-btn">Github</button></div>
-        <div class="pill-row">
-          <span class="pill" data-tag="HTML">HTML</span>
-          <span class="pill" data-tag="CSS">CSS</span>
-          <span class="pill" data-tag="API">API</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Renders every entry in PROJECTS (no limit) -->
+  <div class="proj-grid" id="projGrid"></div>
+
   <p class="empty-msg" id="emptyMsg">No projects match that filter yet.</p>
 </div>
 
+<script src="Sitedata.js"></script>
 <script>
-  const filterBtns = document.querySelectorAll('.filter-pill');
-  const cards = document.querySelectorAll('.proj-card');
-  const emptyMsg = document.getElementById('emptyMsg');
-
-  filterBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      filterBtns.forEach(b=>b.classList.remove('on'));
-      btn.classList.add('on');
-      const tag = btn.dataset.tag;
-      let visibleCount = 0;
-      cards.forEach(c=>{
-        const show = tag === 'all' || c.dataset.tags.includes(tag);
-        c.style.display = show ? '' : 'none';
-        if(show) visibleCount++;
-      });
-      emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-    });
-  });
+  renderProjects('projGrid');
+  renderFilterBar('filterRow', 'projGrid', 'emptyMsg');
 </script>
 </body>
 </html>

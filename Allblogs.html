@@ -32,22 +32,29 @@
   .blog-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px;}
   .blog-card{
     background:#fff; border:1px solid #e7e7e7; border-radius:12px;
-    padding:22px 24px; display:flex; flex-direction:column; gap:10px;
+    overflow:hidden; display:flex; flex-direction:column;
   }
+  .blog-banner{
+    height:140px; width:100%; object-fit:cover; display:block;
+    background:linear-gradient(135deg, var(--blue), var(--pink));
+  }
+  .blog-body{ padding:20px 22px 22px; display:flex; flex-direction:column; gap:10px; }
   .blog-topic{
     align-self:flex-start; font-size:.75rem; font-weight:700; letter-spacing:.03em;
     text-transform:uppercase; padding:4px 12px; border-radius:20px;
     background:#fff3d6; color:#8a6a10;
   }
-  .blog-card h4{ margin:0; font-size:1.2rem; font-weight:700; }
-  .blog-card p{ margin:0; font-size:.92rem; line-height:1.55; color:#3a3f45; }
-  .blog-meta{ font-size:.8rem; color:var(--muted); }
+  .blog-body h4{ margin:0; font-size:1.15rem; font-weight:700; }
+  .blog-body p{ margin:0; font-size:.9rem; line-height:1.55; color:#3a3f45; }
+  .blog-meta{ font-size:.78rem; color:var(--muted); }
   .blog-link{
     display:inline-flex; align-items:center; gap:6px; margin-top:4px;
     font-size:.85rem; font-weight:600; color:var(--navy); text-decoration:none;
     border-bottom:1.5px solid var(--blue); padding-bottom:1px; align-self:flex-start;
   }
   .blog-link:hover{ color:#000; }
+
+  .empty-msg{display:none; color:var(--muted); font-size:.95rem; padding:30px 0;}
 
   .more-note{
     margin-top:34px; padding:16px 20px; border-radius:10px; background:var(--blue);
@@ -62,24 +69,14 @@
   <span class="tag">All Blogs</span>
   <p class="lead-line">Everything I've written so far — all posted on Medium. More coming as I write them.</p>
 
-  <div class="blog-grid">
-    <div class="blog-card">
-      <span class="blog-topic">Web Dev</span>
-      <h4>Blog Post Title 1</h4>
-      <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
-      <span class="blog-meta">Medium · replace with date/read time</span>
-      <a class="blog-link" href="https://medium.com/@your-handle/post-1" target="_blank" rel="noopener">Read on Medium ↗</a>
-    </div>
-    <div class="blog-card">
-      <span class="blog-topic">Web Dev</span>
-      <h4>Blog Post Title 2</h4>
-      <p>Short one to two line summary of what this post covers goes here — replace with your actual excerpt.</p>
-      <span class="blog-meta">Medium · replace with date/read time</span>
-      <a class="blog-link" href="https://medium.com/@your-handle/post-2" target="_blank" rel="noopener">Read on Medium ↗</a>
-    </div>
-  </div>
+  <!-- Renders every entry in BLOGS (no limit) -->
+  <div class="blog-grid" id="blogGrid"></div>
+  <p class="empty-msg" id="emptyMsg">No posts yet — check back soon.</p>
 
-  <div class="more-note">📝 That's everything for now — new posts will show up here as they're published.</div>
-</div>
+<script src="Sitedata.js"></script>
+<script>
+  renderBlogs('blogGrid');
+  document.getElementById('emptyMsg').style.display = BLOGS.length === 0 ? 'block' : 'none';
+</script>
 </body>
 </html>
