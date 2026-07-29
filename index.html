@@ -372,6 +372,49 @@
 
   footer{text-align:center; color:var(--muted); font-size:.85rem; padding-top:30px; border-top:1px solid #ececec;}
 
+  /* ---- game invite popup ---- */
+  #gameModalOverlay{
+    position:fixed; inset:0; z-index:8000;
+    background:rgba(21,21,21,.55);
+    backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .35s ease, visibility .35s ease;
+  }
+  #gameModalOverlay.show{ opacity:1; visibility:visible; pointer-events:auto; }
+  .game-modal{
+    background:var(--yellow);
+    border-radius:14px;
+    max-width:420px; width:100%;
+    padding:30px 28px 26px;
+    box-shadow:6px 8px 0 rgba(0,0,0,.18);
+    transform:rotate(-1.2deg) translateY(16px);
+    opacity:0;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), opacity .4s ease;
+  }
+  #gameModalOverlay.show .game-modal{
+    transform:rotate(-1.2deg) translateY(0);
+    opacity:1;
+  }
+  .game-modal-icon{ font-size:2.1rem; margin-bottom:6px; }
+  .game-modal h3{
+    font-family:'Caveat',cursive; font-size:2rem; font-weight:700;
+    margin:0 0 10px; line-height:1.1;
+  }
+  .game-modal p{
+    font-size:.98rem; line-height:1.55; color:var(--ink); margin:0 0 22px;
+  }
+  .game-modal-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+  .game-btn{
+    font-family:'Poppins',sans-serif; font-weight:600; font-size:.92rem;
+    border:none; border-radius:9px; padding:11px 20px; cursor:pointer;
+  }
+  .game-btn.sure{ background:var(--navy); color:#fff; }
+  .game-btn.sure:hover{ background:#000; }
+  .game-btn.leave{ background:#fff; color:var(--ink); border:1.5px solid var(--ink); }
+  .game-btn.leave:hover{ background:#f2f2f2; }
+
   html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
   #preloader{
     position:fixed; inset:0; z-index:9999;
@@ -637,6 +680,19 @@
   <footer>© <span id="year"></span> Archan Kundu Chowdhury. All rights reserved.</footer>
 </div>
 
+<!-- Game invite popup -->
+<div id="gameModalOverlay">
+  <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="gameModalTitle">
+    <div class="game-modal-icon">🎮</div>
+    <h3 id="gameModalTitle">Checked my portfolio?</h3>
+    <p>Now do you want to play a game built by me?</p>
+    <div class="game-modal-actions">
+      <button class="game-btn sure" id="gameModalSure">Sure</button>
+      <button class="game-btn leave" id="gameModalLeave">Leave</button>
+    </div>
+  </div>
+</div>
+
 <script src="Sitedata.js"></script>
 <script>
   lucide.createIcons();
@@ -761,6 +817,51 @@
     alert('Thanks! This is a demo form — hook it up to your backend/email service to receive messages.');
     e.target.reset();
   });
+
+  // ---- Game invite popup: shows once when the visitor reaches the footer ----
+  (function(){
+    // TODO: replace with your actual GitHub Pages game link
+    const GAME_URL = "https://archan47.github.io/NinjaGO-JS-GAME/";
+
+    const overlay = document.getElementById('gameModalOverlay');
+    const footerEl = document.querySelector('footer');
+    const sureBtn = document.getElementById('gameModalSure');
+    const leaveBtn = document.getElementById('gameModalLeave');
+    if(!overlay || !footerEl) return;
+
+    let shown = sessionStorage.getItem('gameModalShown') === '1';
+
+    function openModal(){
+      if(shown) return;
+      shown = true;
+      sessionStorage.setItem('gameModalShown', '1');
+      overlay.classList.add('show');
+    }
+    function closeModal(){
+      overlay.classList.remove('show');
+    }
+
+    const footerObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          openModal();
+        }
+      });
+    }, { threshold: 0.6 });
+    footerObserver.observe(footerEl);
+
+    sureBtn.addEventListener('click', ()=>{
+      window.open(GAME_URL, '_blank', 'noopener');
+      closeModal();
+    });
+    leaveBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeModal();
+    });
+  })();
 </script>
 </body>
 </html>
