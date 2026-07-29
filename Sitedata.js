@@ -79,7 +79,7 @@ const BLOGS = [
   {
     topic: "Machine Learning",
     title: "Gaussian Naive Bayes From Scratch — The Computation Behind Every Prediction",
-    desc: "Short one to two line summary of what this post covers goes here — replace with your actual excerpt.",
+    desc: "Derives Gaussian Naive Bayes from Bayes' theorem and probability density functions, implements it from scratch in Python, then validates every prediction against scikit-learn's GaussianNB to confirm the math holds up.",
     image:"images/nb.png",
     publication: "Towards AI",
     meta: "Jul 2", 
